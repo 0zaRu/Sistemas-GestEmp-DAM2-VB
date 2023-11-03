@@ -47,6 +47,7 @@ print(reSuma, reResta, reMulti)
 print(ejemplo(1, 2, 3))
 
 print()
+
 def diferentesParam(arg1, arg2="tardes", arg3="Alberto"):
     print(arg1, arg2, arg3)
 
