@@ -1,4 +1,5 @@
 #HUNDIR LA FLOTA DE ALBERTO RODRÍGUEZ
+import numpy as np
 
 grupoBarcos = {
     '4c': 'C',
