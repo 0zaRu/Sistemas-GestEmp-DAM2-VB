@@ -1,6 +1,6 @@
 import os
 
-def impresion(tablero):
+def impresion(tablero, turno):
     i = 1
     print("    1   2   3  ")
     print("  -------------")
@@ -12,8 +12,11 @@ def impresion(tablero):
         print()
         print("  -------------")
         i+=1
+        
+    if turno%2 == 0:print("\nEs el turno de X")
+    else:print("\nEs el turno de O")
     
-    print("\n(1H, 2V --> EJ: 23)")
+    print("(1H, 2V --> EJ: 23)")
 
 def nuevoMovimiento(nMovimiento, tablero):
     h, v = input("Introduce la jugada: ")
@@ -30,7 +33,8 @@ def nuevoMovimiento(nMovimiento, tablero):
     return True, tablero
 
 def comprueba3Enraya(tablero):
-    contX1, contO1, contX2, contO2, contDX1, contDO1, contDX2, contDO2 = 0, 0, 0, 0, 0, 0, 0, 0;
+    contX1, contO1, contX2, contO2, contDX1, contDO1, contDX2, contDO2 \
+        = 0, 0, 0, 0, 0, 0, 0, 0;
 
     for i in range(3):
         for j in range(3):
@@ -54,30 +58,31 @@ def comprueba3Enraya(tablero):
 
 os.system("cls")
 tablero = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
-impresion(tablero)
+impresion(tablero, 1)
 
-victoria = False
 i = 0
 
-while not victoria:
+while i<9:
     i+=1
     valido, tablero = nuevoMovimiento(i, tablero)
     
     if valido is True:
         os.system("cls")
-        impresion(tablero)
+        impresion(tablero, i+1)
     else:
-        print("El rango de valores introducido no es correcto o ya hay colocada una ficha...\n\n")
+        print("El rango de valores introducido no es correcto o "\
+            "ya hay colocada una ficha...\n\n")
         i -= 1
     
-    if i >= 5:
-        victoria = comprueba3Enraya(tablero)
-        if victoria:
-            if i%2 == 0:
-                print("\nEnhorabuena!, ha ganado el jugador X\n"\
-                        "====================================\n")
-            else:
-                print("\nEnhorabuena!, ha ganado el jugador O\n"\
-                        "====================================\n")    
-    
-    
+    if comprueba3Enraya(tablero) and i>=5:
+        if i%2 == 0:
+            print("\nEnhorabuena!, ha ganado el jugador X\n"\
+                    "====================================\n")
+        else:
+            print("\nEnhorabuena!, ha ganado el jugador O\n"\
+                    "====================================\n")    
+        break;
+        
+else:
+    print("\nEMPATE, NINGUNO DE LOS JUGADORES HA GANADO\n"\
+            "==========================================\n")
