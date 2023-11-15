@@ -1,3 +1,5 @@
+import os
+
 def impresion(tablero):
     i = 1
     print("    1   2   3  ")
@@ -15,23 +17,42 @@ def impresion(tablero):
 
 def nuevoMovimiento(nMovimiento, tablero):
     h, v = input("Introduce la jugada: ")
-    x, y = int(h), int(v)
+    x, y = int(h)-1, int(v)-1
     
-    if x < 1 or y < 1 or x > 3 or y > 3:
+    if x < 0 or y < 0 or x > 2 or y > 2 or tablero[x][y] != " ":
         return False, tablero 
     
     if nMovimiento%2==0:
-        tablero[x-1][y-1] = "X"
+        tablero[x][y] = "X"
     else:
-        tablero[x-1][y-1] = "O"
+        tablero[x][y] = "O"
     
     return True, tablero
 
-
 def comprueba3Enraya(tablero):
-    return True        
-    
+    contX1, contO1, contX2, contO2, contDX1, contDO1, contDX2, contDO2 = 0, 0, 0, 0, 0, 0, 0, 0;
 
+    for i in range(3):
+        for j in range(3):
+            if tablero[i][j] == "X": contX1+=1
+            if tablero[i][j] == "O": contO1+=1
+            if tablero[j][i] == "X": contX2+=1
+            if tablero[j][i] == "O": contO2+=1
+        
+        if tablero[i][i] == "X": contDX1+=1
+        if tablero[i][i] == "O": contDO1+=1
+        if tablero[i][len(tablero)-i-1] == "X": contDX2+=1
+        if tablero[i][len(tablero)-i-1] == "O": contDO2+=1
+        
+        if 3 in [contX1, contO1, contX2, contO2, contDX1, contDO1, contDX2, contDO2]:
+            return True
+        else:
+            contX1, contO1, contX2, contO2 = 0, 0, 0, 0
+    
+    return False
+
+
+os.system("cls")
 tablero = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
 impresion(tablero)
 
@@ -43,9 +64,10 @@ while not victoria:
     valido, tablero = nuevoMovimiento(i, tablero)
     
     if valido is True:
+        os.system("cls")
         impresion(tablero)
     else:
-        print("El rango de valores introducido no es correcto...")
+        print("El rango de valores introducido no es correcto o ya hay colocada una ficha...\n\n")
         i -= 1
     
     if i >= 5:
@@ -57,3 +79,5 @@ while not victoria:
             else:
                 print("\nEnhorabuena!, ha ganado el jugador O\n"\
                         "====================================\n")    
+    
+    
