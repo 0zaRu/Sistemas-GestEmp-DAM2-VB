@@ -1,6 +1,7 @@
 import os
 
 def impresion(tablero, turno):
+    
     i = 1
     print("    1   2   3  ")
     print("  -------------")
@@ -19,18 +20,21 @@ def impresion(tablero, turno):
     print("(1H, 2V --> EJ: 23)")
 
 def nuevoMovimiento(nMovimiento, tablero):
-    h, v = input("Introduce la jugada: ")
-    x, y = int(h)-1, int(v)-1
-    
-    if x < 0 or y < 0 or x > 2 or y > 2 or tablero[x][y] != " ":
-        return False, tablero 
-    
-    if nMovimiento%2==0:
-        tablero[x][y] = "X"
-    else:
-        tablero[x][y] = "O"
-    
-    return True, tablero
+    try:
+        h, v = input("Introduce la jugada: ")
+        x, y = int(h)-1, int(v)-1
+        
+        if x < 0 or y < 0 or x > 2 or y > 2 or tablero[x][y] != " ":
+            return False, tablero 
+        
+        if nMovimiento%2==0:
+            tablero[x][y] = "X"
+        else:
+            tablero[x][y] = "O"
+        
+        return True, tablero
+    except:
+        return False, tablero
 
 def comprueba3Enraya(tablero):
     contX1, contO1, contX2, contO2, contDX1, contDO1, contDX2, contDO2 \
@@ -70,8 +74,8 @@ while i<9:
         os.system("cls")
         impresion(tablero, i+1)
     else:
-        print("El rango de valores introducido no es correcto o "\
-            "ya hay colocada una ficha...\n\n")
+        print("Rango de valores introducido no es correcto, "\
+            "ya hay colocada una ficha o el carácter no es válido ...\n\n")
         i -= 1
     
     if comprueba3Enraya(tablero) and i>=5:
