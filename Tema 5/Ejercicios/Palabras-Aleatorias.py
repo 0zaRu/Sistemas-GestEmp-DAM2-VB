@@ -1,5 +1,6 @@
-#Importo la función random
+#Importo la función random y system 
 from random import *
+from os import system
 
 #Creo estas 3 listas para tener un poco de juego de probabilidad,
 #separando las consonantes (de forma arbitraria) en probables y no probables
@@ -57,15 +58,15 @@ def generaPalabra():
 
 def numerosSinRepetir(cantNumeros = 5, numMin = 1, numMax = 50):
     generados = []
-    for i in range(cantNumeros):
+    while len(generados) <= cantNumeros :
         nGen = randint(numMin, numMax)
 
         if generados.count(nGen) == 0:
             generados.append(nGen)
             yield nGen
-        else:
-            i = i - 1
+        
 
+system("cls")
 
 print("Palabras generadas y elegidas:")
 print("==============================")
@@ -77,6 +78,6 @@ print("\n\nLos numeros generados no repetidos:")
 print("===================================")
 
 cantNumeros = 5
-numeros = numerosSinRepetir(cantNumeros, 1, 5)
+numeros = numerosSinRepetir(cantNumeros, 1, 50)
 for i in range(cantNumeros):
     print(next(numeros))
