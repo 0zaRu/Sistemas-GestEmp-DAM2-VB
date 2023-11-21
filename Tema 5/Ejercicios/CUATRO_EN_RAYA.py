@@ -44,27 +44,25 @@ def nuevoMovimiento(nMovimiento, tablero):
     except:
         return False, tablero
 
-def compruebaCasilla(x, y, tablero)
-    rangos = [["", "", "", ""], 
-              ["", "", "", ""], 
-              ["", "", "", ""], 
-              ["", "", "", ""], 
-              ["", "", "", ""], 
-              ["", "", "", ""], 
-              ["", "", "", ""], 
-              ["", "", "", ""], ]
+def compruebaCasilla(x, y, tablero):
+    rangos = [[".", ".", ".", "."], [".", ".", ".", "."], [".", ".", ".", "."], [".", ".", ".", "."], [".", ".", ".", "."], [".", ".", ".", "."], [".", ".", ".", "."], [".", ".", ".", "."], ]
     
     for i in range(4):
-        rangos[0][i] = tablero[x][y+i]      #Comprueba horizontal positiva
-        rangos[1][i] = tablero[x][n = if y-i >=0]      #Comprueba horizontal negativa
-
-
-
-
+        
+        if y+i <= 5: rangos[0][i] = tablero[x][y+i]      #Comprueba vertical creciento
+        if x+i <= 6: rangos[2][i] = tablero[x+i][y]      #Comprueba horizontal derecha
+        if y+i <= 5 and x+i <= 6: rangos[4][i] = tablero[x+i][y+i] #Comprobar diagonal creciente derecha
+        if y+i <= 5 and x-i >= 0: rangos[6][i] = tablero[x-i][y+i] #Comprobar diagonal creciente izquierda
+        
+    for i in range(8):
+        if all(valor == "X" for valor in rangos[i]) or all(valor == "O" for valor in rangos[i]): 
+            return True
+    
+    return False
 
 def comprueba4Enraya(tablero):
-    for i in range(6):
-        for j in range(7):
+    for i in range(7):
+        for j in range(6):
             if tablero[i][j] != ".":
                 if compruebaCasilla(i, j, tablero):
                     return True
@@ -72,23 +70,12 @@ def comprueba4Enraya(tablero):
     return False
 
 
-
-
 os.system("cls")
-tablero = [[".", ".", ".",".", ".", "."], 
-           [".", ".", ".",".", ".", "."], 
-           [".", ".", ".",".", ".", "."], 
-           [".", ".", ".",".", ".", "."], 
-           [".", ".", ".",".", ".", "."], 
-           [".", ".", ".",".", ".", "."], 
-           [".", ".", ".",".", ".", "."]]
-
-
+tablero = [[".", ".", ".", ".", ".", "."], [".", ".", ".", ".", ".", "."], [".", ".", ".", ".", ".", "."], [".", ".", ".", ".", ".", "."], [".", ".", ".", ".", ".", "."], [".", ".", ".", ".", ".", "."], [".", ".", ".", ".", ".", "."]]
 impresion(tablero, 1)
 
 i = 0
-victoria = False;
-while victoria == False:
+while any(valor == "." for valor in tablero[0]):
     i+=1
     valido, tablero = nuevoMovimiento(i, tablero)
     
@@ -99,17 +86,15 @@ while victoria == False:
         print("\tRango de valores introducido no es correcto, "\
             "ya hay colocada una ficha o el carácter no es válido ...\n\n")
         i -= 1
-    
-    """
-    if comprueba3Enraya(tablero) and i>=5:
+
+    if comprueba4Enraya(tablero) and i>=4:
         if i%2 == 0:
             print("\nEnhorabuena!, ha ganado el jugador X\n"\
                     "====================================\n")
         else:
             print("\nEnhorabuena!, ha ganado el jugador O\n"\
                     "====================================\n")    
-        break;
-    """
+        break
         
 else:
     print("\nEMPATE, NINGUNO DE LOS JUGADORES HA GANADO\n"\
