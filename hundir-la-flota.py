@@ -27,7 +27,7 @@ class Tablero():
         self.t = tableros
 
 def impresion(tableros, turno):
-    #os.system("cls")
+    os.system("cls")
 
     cont = 0
     print("\t     a   b   c   d   e   f   g   h   i   j \t"*2)
@@ -58,12 +58,12 @@ def rodeaCasilla(t, h, v):
 
     if h+1 < len(t) and v   < len(t[0]) and t[h+1][v]   == " ": t[h+1][v]   = "."
     if h+1 < len(t) and v+1 < len(t[0]) and t[h+1][v+1] == " ": t[h+1][v+1] = "."
-    if h+1 < len(t) and v-1 > 0         and t[h+1][v-1] == " ": t[h+1][v-1] = "."
+    if h+1 < len(t) and v-1 >= 0        and t[h+1][v-1] == " ": t[h+1][v-1] = "."
     if h   < len(t) and v+1 < len(t[0]) and t[h]  [v+1] == " ": t[h]  [v+1] = "."
-    if h   < len(t) and v   > 0         and t[h]  [v-1] == " ": t[h]  [v-1] = "."
-    if h-1 > 0      and v   < len(t[0]) and t[h-1][v]   == " ": t[h-1][v]   = "."
-    if h-1 > 0      and v+1 < len(t[0]) and t[h-1][v+1] == " ": t[h-1][v+1] = "."
-    if h-1 > 0      and v   > 0         and t[h-1][v-1] == " ": t[h-1][v-1] = "."
+    if h   < len(t) and v-1 >= 0        and t[h]  [v-1] == " ": t[h]  [v-1] = "."
+    if h-1 >= 0     and v   < len(t[0]) and t[h-1][v]   == " ": t[h-1][v]   = "."
+    if h-1 >= 0     and v+1 < len(t[0]) and t[h-1][v+1] == " ": t[h-1][v+1] = "."
+    if h-1 >= 0     and v-1 >= 0        and t[h-1][v-1] == " ": t[h-1][v-1] = "."
 
     return t
 
@@ -83,10 +83,10 @@ def gestionaEspacio(t, horizontal, letraBarco, tBarco, pH, pV):
         if not horizontal:
             t[pH][pV+i] = letraBarco
 
-    #rodeo con puntos, filtrando por la letra del barco actual para evitar dar vueltas de más
+    #escribo puntos filtrando por la letra de los barcos actuales para ahorrar vueltas
     for i in range(len(t)):
         for j in range(len(t[0])):
-            if t[i][j] not in {" ", "."} and t[i][j] == letraBarco: t = rodeaCasilla(t, i, j)
+            if t[i][j] == letraBarco: t = rodeaCasilla(t, i, j)
 
     return True, t
 
