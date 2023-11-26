@@ -1,0 +1,33 @@
+mates
+	Alumno0
+		nombre: Juan
+		apellido: Hernandez
+		edad: 17
+		movil: 001122330
+	Alumno1
+		nombre: Maria
+		apellido: Gutierrez
+		edad: 17
+		movil: 123456789
+	Alumno2
+		nombre: Elena
+		apellido: Jimenez
+		edad: 18
+		movil: 789456123
+lengua
+	Alumno0
+		nombre: Juan
+		apellido: Hernandez
+		edad: 17
+		movil: 001122330
+	Alumno1
+		nombre: Maria
+		apellido: Gutierrez
+		edad: 17
+		movil: 123456789
+	Alumno2
+		nombre: Elena
+		apellido: Jimenez
+		edad: 18
+		movil: 789456123
+
