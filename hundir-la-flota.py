@@ -41,12 +41,14 @@ def impresion(tableros):
         
         print("\t",cont,"║", end="")
         for casilla in filaT1:
-            print(" "+casilla+" ║" if casilla != "." else "   ║", end="")
+            print("   ║" if casilla in {".", " "} else " X ║", end="")
+            #print(" "+casilla+" ║" if casilla != "." else "   ║", end="")
             #print(" "+casilla+" ║", end="")
         
         print("\t\t",cont,"║", end="")
         for casilla in filaT2:
-            print(" "+casilla+" ║" if casilla != "." else "   ║", end="")
+            print("   ║" if casilla in {".", " "} else " X ║", end="")
+            #print(" "+casilla+" ║" if casilla != "." else "   ║", end="")
             #print(" "+casilla+" ║", end="")
     
         print()
