@@ -1,0 +1,58 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition
+
+    <record model="ir.ui.view" id="Biblioteca_arp.list">
+      <field name="name">BibliotecaARP list</field>
+      <field name="model">Biblioteca_arp.Biblioteca_arp</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+    <!-- actions opening views on models
+
+    <record model="ir.actions.act_window" id="Biblioteca_arp.action_window">
+      <field name="name">BibliotecaARP window</field>
+      <field name="res_model">Biblioteca_arp.Biblioteca_arp</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+    <!-- server action to the one above
+
+    <record model="ir.actions.server" id="Biblioteca_arp.action_server">
+      <field name="name">BibliotecaARP server</field>
+      <field name="model_id" ref="model_biblioteca_arp_biblioteca_arp"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item
+
+    <menuitem name="BibliotecaARP" id="Biblioteca_arp.menu_root"/>-->
+
+    <!-- menu categories
+
+    <menuitem name="Menu 1" id="Biblioteca_arp.menu_1" parent="Biblioteca_arp.menu_root"/>
+    <menuitem name="Menu 2" id="Biblioteca_arp.menu_2" parent="Biblioteca_arp.menu_root"/>
+-->
+    <!-- actions
+
+    <menuitem name="List" id="Biblioteca_arp.menu_1_list" parent="Biblioteca_arp.menu_1"
+              action="Biblioteca_arp.action_window"/>
+    <menuitem name="Server to list" id="Biblioteca_arp" parent="Biblioteca_arp.menu_2"
+              action="Biblioteca_arp.action_server"/>
+-->
+  </data>
+</odoo>

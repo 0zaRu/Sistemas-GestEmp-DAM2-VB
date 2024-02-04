@@ -1,0 +1,75 @@
+<odoo>
+    <data>
+
+        <template id="report_ficha_libro">
+            <t t-call="web.html_container">
+                <t t-as="o" t-foreach="docs">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <h2>
+                                <span t-field="o.name"/>
+                            </h2>
+                            <p style="color: black; font-family: Verdana; font-weight: bold;">
+                                Titulo:
+                                <span t-field="o.name"/>
+                            </p>
+                            <t t-if="o.imagen">
+                                <img style="max-height:8cm; max-width:8cm;" t-attf-src="data:image/jpg;base64,{{ o.imagen }}" widget="image"/>
+                            </t>
+                            <p/>
+
+                            <t t-if="o.author_ids">
+                                <p>
+                                    <span style="color: black; font-family: Verdana; font-weight: bold;">Autor/es:</span>
+                                    <t t-foreach="o.author_ids" t-as="author">
+                                        <span t-field="author.name"/>
+                                    </t>
+                                </p>
+                            </t>
+
+                            <t t-if="o.editorial_ids">
+                                <p>
+                                    <span style="color: black; font-family: Verdana; font-weight: bold;">Editor/es:</span>
+                                    <t t-foreach="o.editorial_ids" t-as="editores">
+                                        <span t-field="editores.name"/>
+                                    </t>
+                                </p>
+                            </t>
+
+                            <t t-if="o.date_release">
+                                <p>
+                                    <span style="color: black; font-family: Verdana; font-weight: bold;">Fecha de publicación:</span>
+                                    <span t-field="o.date_release"/>
+                                </p>
+                            </t>
+                            <t t-if="o.language">
+                                <p>
+                                    <span style="color: black; font-family: Verdana; font-weight: bold;">Idioma:</span>
+                                    <span t-field="o.language"/>
+                                </p>
+                            </t>
+                            <t t-if="o.pages">
+                                <p>
+                                    <span style="color: black; font-family: Verdana; font-weight: bold;">Páginas:</span>
+                                    <span t-field="o.pages"/>
+                                </p>
+                            </t>
+                            <t t-if="o.summary">
+                                <p>
+                                    <span style="color: black; font-family: Verdana; font-weight: bold;">Resumen:</span>
+                                    <span t-field="o.summary"/>
+                                </p>
+                            </t>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+        <template id="informe_imprimir_fichas">
+            <t t-call="web.html_container">
+                <t t-call="biblioteca_arp.report_ficha_libro"/>
+            </t>
+        </template>
+    </data>
+</odoo>

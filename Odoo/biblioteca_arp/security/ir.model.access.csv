@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+biblioteca_arp.bibliotecarios,biblioteca_arp.bibliotecarios,model_biblioteca_libro,biblioteca_bibliotecarios_group,1,1,1,1
+biblioteca_arp.administrador,biblioteca_arp.administrador,model_biblioteca_libro,base.group_system,1,1,1,1
+biblioteca_arp.bibliotecarios_autores,biblioteca_arp.bibliotecarios_autores,model_biblioteca_autores,biblioteca_bibliotecarios_group,1,1,1,1
+biblioteca_arp.bibliotecarios_autores,biblioteca_arp.bibliotecarios_autores,model_biblioteca_autores,base.group_system,1,1,1,1
+biblioteca_arp.bibliotecarios_editores,biblioteca_arp.bibliotecarios_editores,model_biblioteca_editores,biblioteca_bibliotecarios_group,1,1,1,1
+biblioteca_arp.bibliotecarios_editores,biblioteca_arp.bibliotecarios_editores,model_biblioteca_editores,base.group_system,1,1,1,1

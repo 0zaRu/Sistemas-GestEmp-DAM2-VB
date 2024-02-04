@@ -1,0 +1,20 @@
+<odoo>
+    <data>
+        <report
+            string="Imprimir la ficha del libro"
+            id="biblioteca_libro_report"
+            model="biblioteca.libro"
+            report_type="qweb-pdf"
+            name="biblioteca_arp.report_ficha_libro"
+            print_report_name="(object.name)"
+        />
+        <report
+            string="Previsualizar la ficha del libro"
+            id="biblioteca_libro_report_preview"
+            model="biblioteca.libro"
+            report_type="qweb-html"
+            name="biblioteca_arp.report_ficha_libro"
+            print_report_name="(object.name)"
+        />
+    </data>
+</odoo>

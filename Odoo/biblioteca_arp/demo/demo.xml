@@ -1,0 +1,98 @@
+<odoo noupdate="1">
+    <data>
+
+        <record id="autores1" model="biblioteca.autores">
+            <field name="name">Miguel de Cervantes Saavedra</field>
+        </record>
+        <record id="autores2" model="biblioteca.autores">
+            <field name="name">John Ronald Reuel Tolkien</field>
+        </record>
+        <record id="autores3" model="biblioteca.autores">
+            <field name="name">Guillaume Dorison</field>
+        </record>
+        <record id="autores4" model="biblioteca.autores">
+            <field name="name">Brandom Sanderson</field>
+        </record>
+
+        <record id="editor1" model="biblioteca.editores">
+            <field name="name">Barco de Vapor</field>
+            <field name="direccion">Dirección A</field>
+            <field name="codigopostal">12345</field>
+            <field name="poblacion">Ciudad A</field>
+        </record>
+
+        <record id="editor2" model="biblioteca.editores">
+            <field name="name">DeBolsillo</field>
+            <field name="direccion">Dirección B</field>
+            <field name="codigopostal">54321</field>
+            <field name="poblacion">Ciudad B</field>
+        </record>
+
+        <record id="editor3" model="biblioteca.editores">
+            <field name="name">Punto Rojo</field>
+            <field name="direccion">Dirección C</field>
+            <field name="codigopostal">53412</field>
+            <field name="poblacion">Ciudad C</field>
+        </record>
+
+        <record id="Libro1" model="biblioteca.libro">
+            <field name="name">El ingenioso hidalgo don Quijote de la Mancha</field>
+            <field name="imagen" type="base64" file="biblioteca_arp/static/img/quijote.jpg"/>
+            <field name="pages">1024</field>
+            <field name="discontinued">False</field>
+            <field name="language">Es</field>
+            <field name="date_release">1605-01-16</field>
+            <field name="summary">Don Quijote, hombre valiente y de lo más aventurero, se embarca (arrastrando a Sancho) en locas aventuras, hazañas, batallas y misiones, todas ellas en nombre de la justicia, el amor, y en definitiva, con el fin de salvar a cualquiera que esté en problemas.</field>
+            <field name="author_ids" eval="[(4, ref('autores1'), 0)]" />
+            <field name="editorial_ids" eval="[(4, ref('editor3'), 0)]" />
+        </record>
+
+        <record id="Libro2" model="biblioteca.libro">
+            <field name="name">El Señor de los Anillos</field>
+            <field name="summary">La novela épica de fantasía escrita por J. R. R. Tolkien sigue la historia de Frodo Bolsón, un hobbit de la Comarca, y su viaje para destruir el Anillo Único. La trama se desarrolla en la Tercera Edad del Sol de la Tierra Media, un lugar ficticio poblado por hombres y otras razas antropomorfas, como los hobbits, los elfos o los enanos, así como por muchas otras criaturas reales y fantásticas</field>
+            <field name="imagen" type="base64" file="biblioteca_arp/static/img/senAnillos.jpg"/>
+            <field name="pages">1178</field>
+            <field name="discontinued">False</field>
+            <field name="date_release">1954-01-16</field>
+            <field name="language">Es</field>
+            <field name="author_ids" eval="[(4, ref('autores2'), 0)]" />
+            <field name="editorial_ids" eval="[(4, ref('editor3'), 0)]" />
+        </record>
+        <record id="Libro3" model="biblioteca.libro">
+            <field name="name">El Principito</field>
+            <field name="imagen" type="base64" file="biblioteca_arp/static/img/principito.jpg"/>
+            <field name="pages">96</field>
+            <field name="discontinued">True</field>
+            <field name="language">Fr</field>
+            <field name="date_release">1943-04-06</field>
+            <field name="summary">La novela corta y la obra más famosa del escritor y aviador francés Antoine de Saint-Exupéry sigue la historia de un pequeño príncipe que viaja de planeta en planeta, aprendiendo sobre la vida, el amor y la amistad. La obra es considerada un libro infantil por la forma en la que está escrito, pero que es en realidad una crítica a la adultez en la que se tratan temas profundos como el sentido de la vida, la soledad, la amistad, el amor y la pérdida</field>
+            <field name="author_ids" eval="[(4, ref('autores3'), 0)]" />
+            <field name="editorial_ids" eval="[(4, ref('editor3'), 0)]" />
+        </record>
+
+        <record id="Libro4" model="biblioteca.libro">
+            <field name="name">El camino de los reyes</field>
+            <field name="imagen" type="base64" file="biblioteca_arp/static/img/at1.jpg"/>
+            <field name="pages">1230</field>
+            <field name="discontinued">False</field>
+            <field name="language">In</field>
+            <field name="date_release">2010-08-14</field>
+            <field name="summary">"El Camino de los Reyes" es el primer libro de la serie "El Archivo de las Tormentas" escrita por Brandon Sanderson. Aquí tienes un resumen corto: En un mundo donde tormentas arrasan la tierra y magia llamada "surgebinding" otorga poderes especiales, la historia sigue a Kaladin, un exsoldado esclavizado, Shallan, una joven con un oscuro pasado, y Dalinar, un noble visionario. Kaladin lucha por sobrevivir en una vida de esclavitud mientras descubre sus propios poderes surgebinding. Shallan busca robar un objeto mágico para salvar a su familia. Dalinar, tío del rey, intenta proteger su reino de intrigas políticas y misteriosas visiones que lo atormentan. La trama se centra en una guerra constante contra criaturas misteriosas llamadas "parshendi" y en la lucha de los personajes por comprender y enfrentar fuerzas sobrenaturales que amenazan el mundo. A medida que las historias se entrelazan, los personajes descubren secretos que cambiarán el destino de su mundo.</field>
+            <field name="author_ids" eval="[(4, ref('autores4'), 0)]" />
+            <field name="editorial_ids" eval="[(4, ref('editor1'), 0), (4, ref('editor2'), 0)]" />
+        </record>
+
+        <record id="Libro5" model="biblioteca.libro">
+            <field name="name">Palabras radiantes</field>
+            <field name="imagen" type="base64" file="biblioteca_arp/static/img/at2.jpg"/>
+            <field name="pages">1243</field>
+            <field name="discontinued">False</field>
+            <field name="language">In</field>
+            <field name="date_release">2014-03-04</field>
+            <field name="summary">"Palabras Radiantes" es el segundo libro de la serie "El Archivo de las Tormentas" de Brandon Sanderson. Aquí tienes un resumen corto: La historia continúa en un mundo amenazado por tormentas destructivas y surgebinding, una magia poderosa. Kaladin lucha con su papel como líder en un grupo de esclavos mientras descubre sus habilidades surgebinding. Shallan, tras eventos traumáticos, desarrolla sus poderes y busca respuestas sobre las tormentas. La trama se centra en la lucha contra los Parshendi, la amenaza de los Voidbringers y la búsqueda de las "Palabras Radiantes", antiguos guerreros con poderes mágicos. Dalinar, tío del rey, intenta unir a las facciones en guerra mientras enfrenta visiones proféticas. La historia explora temas de poder, traición y sacrificio, y revela secretos sobre la historia del mundo. Los personajes enfrentan desafíos personales y se preparan para un conflicto épico que podría cambiar el destino de su mundo.</field>
+            <field name="author_ids" eval="[(4, ref('autores4'), 0)]" />
+            <field name="editorial_ids" eval="[(4, ref('editor2'), 0)]" />
+        </record>
+
+    </data>
+</odoo>
