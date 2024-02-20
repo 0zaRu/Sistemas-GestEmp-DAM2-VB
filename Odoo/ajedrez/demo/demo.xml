@@ -1,0 +1,343 @@
+<odoo noupdate="1">
+    <data>
+
+        <record id="jugador1" model="ajedrez.jugador">
+            <field name="ID_Jugador">1</field>
+            <field name="Nombre">Juan</field>
+            <field name="Apellidos">Pérez</field>
+            <field name="Pais">España</field>
+            <field name="ELO">2200</field>
+            <field name="Foto" type="base64" file="ajedrez/static/img/Jugador1.png"/>
+        </record>
+
+        <record id="jugador2" model="ajedrez.jugador">
+            <field name="ID_Jugador">2</field>
+            <field name="Nombre">María</field>
+            <field name="Apellidos">López</field>
+            <field name="Pais">Argentina</field>
+            <field name="ELO">2100</field>
+            <field name="Foto" type="base64" file="ajedrez/static/img/Jugador5.png"/>
+        </record>
+
+          <record id="jugador3" model="ajedrez.jugador">
+            <field name="ID_Jugador">3</field>
+            <field name="Nombre">Carlos</field>
+            <field name="Apellidos">García</field>
+            <field name="Pais">México</field>
+            <field name="ELO">2150</field>
+            <field name="Foto" type="base64" file="ajedrez/static/img/Jugador3.png"/>
+        </record>
+
+        <record id="jugador4" model="ajedrez.jugador">
+            <field name="ID_Jugador">4</field>
+            <field name="Nombre">Ana</field>
+            <field name="Apellidos">Martínez</field>
+            <field name="Pais">Colombia</field>
+            <field name="ELO">2000</field>
+            <field name="Foto" type="base64" file="ajedrez/static/img/Jugador4.png"/>
+        </record>
+
+        <record id="jugador5" model="ajedrez.jugador">
+            <field name="ID_Jugador">5</field>
+            <field name="Nombre">Luis</field>
+            <field name="Apellidos">Gómez</field>
+            <field name="Pais">España</field>
+            <field name="ELO">2250</field>
+            <field name="Foto" type="base64" file="ajedrez/static/img/Jugador2.png"/>
+        </record>
+
+        <record id="jugador6" model="ajedrez.jugador">
+            <field name="ID_Jugador">6</field>
+            <field name="Nombre">Elena</field>
+            <field name="Apellidos">Díaz</field>
+            <field name="Pais">Argentina</field>
+            <field name="ELO">2080</field>
+            <field name="Foto" type="base64" file="ajedrez/static/img/Jugador6.png"/>
+        </record>
+
+        <record id="jugador7" model="ajedrez.jugador">
+            <field name="ID_Jugador">7</field>
+            <field name="Nombre">Roberto</field>
+            <field name="Apellidos">Sánchez</field>
+            <field name="Pais">México</field>
+            <field name="ELO">2100</field>
+            <field name="Foto" type="base64" file="ajedrez/static/img/Jugador7.png"/>
+        </record>
+
+        <record id="jugador8" model="ajedrez.jugador">
+            <field name="ID_Jugador">8</field>
+            <field name="Nombre">Marina</field>
+            <field name="Apellidos">Fernández</field>
+            <field name="Pais">Colombia</field>
+            <field name="ELO">1980</field>
+            <field name="Foto" type="base64" file="ajedrez/static/img/Jugador8.png"/>
+        </record>
+
+        <record id="jugador9" model="ajedrez.jugador">
+            <field name="ID_Jugador">9</field>
+            <field name="Nombre">Pedro</field>
+            <field name="Apellidos">Gutiérrez</field>
+            <field name="Pais">España</field>
+            <field name="ELO">2300</field>
+            <field name="Foto" type="base64" file="ajedrez/static/img/Jugador9.png"/>
+        </record>
+
+        <record id="jugador10" model="ajedrez.jugador">
+            <field name="ID_Jugador">10</field>
+            <field name="Nombre">Laura</field>
+            <field name="Apellidos">Pérez</field>
+            <field name="Pais">Argentina</field>
+            <field name="ELO">2150</field>
+            <field name="Foto" type="base64" file="ajedrez/static/img/Jugador10.png"/>
+        </record>
+
+
+
+        <record id="partida1" model="ajedrez.partida">
+            <field name="ID_Partida">1</field>
+            <field name="Fecha_juego">2023-01-15</field>
+            <field name="Resultado">1 - 0</field>
+            <field name="Duracion">45</field>
+            <field name="Registro_Movimientos">
+1. e4 e5
+2. Cf3 Cc6
+3. Ab5 Cf6
+4. d3 d6
+5. c3 g6
+6. Cbd2 Ag7
+7. Cf1 O-O
+8. Aa4 Cd7
+9. Ce3 Cc5
+10. Ac2 Ce6
+11. h4 Ce7
+12. h5 d5
+13. hxg6 fxg6
+14. exd5 Cxd5
+15. Cxd5 Dxd5
+16. Ab3 Dc6
+17. De2 Ad7
+18. Ae3 Rh8
+19. O-O-O Tae8
+20. Df1 a5
+21. d4 exd4
+22. Cxd4 Axd4
+23. Axd4+ Cxd4
+24. Txh7+ Rxh7
+25. Dh1+ Rg7
+26. Ah6+ Rf6
+27. Dh4+ Re5
+28. Dxd4#
+            </field>
+            <field name="ID_JugadorBlanco" ref="jugador1"/>
+            <field name="ID_JugadorNegro" ref="jugador2"/>
+        </record>
+
+        <record id="partida2" model="ajedrez.partida">
+            <field name="ID_Partida">2</field>
+            <field name="Fecha_juego">2023-02-20</field>
+            <field name="Resultado">1 - 0</field>
+            <field name="Duracion">30</field>
+            <field name="Registro_Movimientos">
+1. e4 e5
+2. Cf3 Cc6
+3. d4 d6
+4. Cc3 Cf6
+5. Ab5 Ad7
+6. O-O Ae7
+7. Te1 exd4
+8. Cxd4 Cxd4
+9. Dxd4 Axb5
+10. Cxb5 O-O
+11. Dc3 c6
+12. Cd4 Cd7
+13. Cf5 Af6
+14. Dg3 Ce5
+15. Af4 Dc7
+16. Tad1 Tad8
+17. Txd6 Txd6
+18. Axe5 Td1
+19. Txd1 Axe5
+20. Ch6+ Rh8
+21. Dxe5 Dxe5
+22. Cxf7+
+            </field>
+            <field name="ID_JugadorBlanco" ref="jugador3"/>
+            <field name="ID_JugadorNegro" ref="jugador4"/>
+        </record>
+
+        <record id="partida3" model="ajedrez.partida">
+            <field name="ID_Partida">3</field>
+            <field name="Fecha_juego">2023-03-10</field>
+            <field name="Resultado">0 - 1</field>
+            <field name="Duracion">60</field>
+            <field name="Registro_Movimientos">
+1. e4
+2. d4 d5
+3. e5 Af5
+4. Ad3 Axd3
+5. Dxd3 e6
+6. Cc3 Db6
+7. Cge2 c5
+8. dxc5 Axc5
+9. O-O Cc6
+10. Ca4 Dc7
+11. Cxc5 Dxc5
+12. Ae3 Dc7
+13. f4 Cge7
+14. c3 Cc5
+15. Tad1 g6
+16. g4
+17. Dxe3 h5
+18. g5 O-O
+19. Cd4 Db6
+20. Tf2 Tfc8
+21. a3 Tc7
+22. Td3 Ca5
+23. Te2 Te8
+24. Rg2 Cc4
+25. Dc1 Tcc8
+26. Te1 Ce7
+27. Ted2 Cc6
+28. Dh1 Rg7
+29. Tf2 Ca5
+30. Te2 Cc4
+31. Cxf5+ gxf5
+32. Df3 Rg6
+33. Ted2 Te4
+34. Td4 Tc5
+35. Df2 Db5
+36. Rg3 Tcxd4
+37. cxd4 Dc6
+38. Rg2 b5
+39. Rg1 b4
+40. axb4 axb4
+41. Rg2 Dc1
+42. Rg3 Dh1
+43. Td3 Te1
+44. Tf3 Td1
+45. b3 Tc1
+46. Te3 Tf1
+
+            </field>
+            <field name="ID_JugadorBlanco" ref="jugador1"/>
+            <field name="ID_JugadorNegro" ref="jugador2"/>
+        </record>
+
+        <record id="partida4" model="ajedrez.partida">
+            <field name="ID_Partida">4</field>
+            <field name="Fecha_juego">2023-04-05</field>
+            <field name="Resultado">1 - 0</field>
+            <field name="Duracion">50</field>
+            <field name="Registro_Movimientos">
+1. e4 e5
+2. Cf3 Cc6
+3. Ab5 a6
+4. Aa4 Cf6
+5. O-O Ae7
+6. Te1 b5
+7. Ab3 d6
+8. c3 O-O
+9. h3 Ca5
+10. Ac2 c5
+11. d4 Dc7
+12. Cbd2 Cc6
+13. d5 Cd8
+14. a4 Tb8
+15. axb5 axb5
+16. b4 Cb7
+17. Cf1 Ad7
+18. Ab3 Ta8
+19. Txa8 Txa8
+20. Ad3 g6
+21. Cg3 Af8
+22. Ta2 Txa2
+23. Ab1 Da7
+24. Aa7 Td2
+25. Dd2 Ce8
+26. Ac2 Cc7
+27. Ab1 Ae8
+28. Ce2 Cd8
+29. Ch2 Ag7
+30. f4 f6
+31. f5 g5
+32. Ac2 Af7
+33. Cg3 Cb7
+34. Ad1 h6
+35. Ah5 De8
+36. Dd1 Cd8
+37. Ta3 Rf8
+38. Ta2 Re7
+39. Cg4 Rf8
+40. Ce3 Rg8
+41. Axf7+ Cxf7
+42. Dh5 Cd8
+43. Dg6 Rf8
+44. Ch5
+            </field>
+            <field name="ID_JugadorBlanco" ref="jugador5"/>
+            <field name="ID_JugadorNegro" ref="jugador6"/>
+        </record>
+
+        <record id="partida5" model="ajedrez.partida">
+            <field name="ID_Partida">5</field>
+            <field name="Fecha_juego">2023-05-10</field>
+            <field name="Resultado">1 - 0</field>
+            <field name="Duracion">60</field>
+            <field name="Registro_Movimientos">
+1. e4 e5
+2. f4 exf4
+3. Nf3 g5
+4. Bc4 g4
+5. Bxf7+ Kxf7
+6. Ne5+ Ke6
+7. Qxg4+ Kxe5
+8. Qf5+ Kd6
+9. d4 Bg7
+10. Bxf4+ Ke7
+11. Bg5+ Bf6
+12. e5 Bxg5
+13. Qxg5+ Ke8
+14. Qh5+ Ke7
+15. O-O Qe8
+16. Qg5+ Ke6
+17. Rf6+ Nxf6
+18. Qxf6+ Kd5
+19. Nc3+ Kxd4
+20. Qf4+ Kc5
+21. b4+ Kc6
+22. Qc4+ Kb6
+23. Na4#
+            </field>
+            <field name="ID_JugadorBlanco" ref="jugador7"/>
+            <field name="ID_JugadorNegro" ref="jugador8"/>
+        </record>
+
+        <record id="partida6" model="ajedrez.partida">
+            <field name="ID_Partida">6</field>
+            <field name="Fecha_juego">2023-06-20</field>
+            <field name="Resultado">1/2 - 1/2</field>
+            <field name="Duracion">40</field>
+            <field name="Registro_Movimientos">
+1. e4 e6
+2. d4 d5
+3. Nc3 Nc6
+4. Nf3 Nf6
+5. exd5 exd5
+6. Bg5 Be7
+7. Bb5 O-O
+8. O-O Bg4
+9. Bxc6 bxc6
+10. Qd3 Bxf3
+11. Qxf3 Nd7
+12. Bxe7 Qxe7
+13. Qd3 Rfe8
+14. Qd2 Nb6
+15. b3 a5
+16. a4 Qb4
+            </field>
+            <field name="ID_JugadorBlanco" ref="jugador9"/>
+            <field name="ID_JugadorNegro" ref="jugador10"/>
+        </record>
+
+    </data>
+</odoo>

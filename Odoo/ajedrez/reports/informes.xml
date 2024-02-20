@@ -1,0 +1,20 @@
+<odoo>
+    <data>
+        <report
+            string="Imprimir la ficha de la partida"
+            id="ajedrez_partida_report"
+            model="ajedrez.partida"
+            report_type="qweb-pdf"
+            name="ajedrez.report_ficha_partida"
+            print_report_name="(object.ID_Partida)"
+        />
+        <report
+            string="Previsualizar la ficha de la partida"
+            id="ajedrez_partida_report_preview"
+            model="ajedrez.partida"
+            report_type="qweb-html"
+            name="ajedrez.report_ficha_partida"
+            print_report_name="(object.ID_Partida)"
+        />
+    </data>
+</odoo>

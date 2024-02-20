@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+ajedrez.jugadores,ajedrez.jugadores,model_ajedrez_jugador,ajedrez_jugadores_group,1,1,1,1
+ajedrez.jugador_admin,ajedrez.jugador_admin,model_ajedrez_jugador,base.group_system,1,1,1,1
+ajedrez.partida,ajedrez.partida,model_ajedrez_partida,ajedrez_partidas_group,1,1,1,1
+ajedrez.partida_admin,ajedrez.partida_admin,model_ajedrez_partida,base.group_system,1,1,1,1

@@ -1,0 +1,221 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="vista_ajedrez_partida_tree">
+            <field name="name">Vista Árbol de Partidas</field>
+            <field name="model">ajedrez.partida</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="ID_Partida"/>
+                    <field name="Fecha_juego"/>
+                    <field name="nombre_jugador_blanco"/>
+                    <field name="Resultado"/>
+                    <field name="nombre_jugador_negro"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="vista_ajedrez_partida_form">
+            <field name="name">Vista Formulario de Partida</field>
+            <field name="model">ajedrez.partida</field>
+            <field name="arch" type="xml">
+                <form string="Partida">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="ID_Partida"/>
+                                <field name="Fecha_juego"/>
+                                <field name="Resultado"/>
+                                <field name="Duracion"/>
+                                <field name="Registro_Movimientos"/>
+                            </group>
+                            <group>
+                                <field name="nombre_jugador_blanco"/>
+                                <field name="ID_JugadorBlanco"/>
+                                <field name="imagen_jugador_blanco" widget="image"/>
+
+                                <field name="nombre_jugador_negro"/>
+                                <field name="ID_JugadorNegro"/>
+                                <field name="imagen_jugador_negro" widget="image"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="vista_ajedrez_partida_kanban">
+            <field name="name">Vista Kanban de Partidas</field>
+            <field name="model">ajedrez.partida</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="ID_Partida"/>
+                    <field name="Fecha_juego"/>
+                    <field name="Resultado"/>
+                    <field name="ID_JugadorBlanco"/>
+                    <field name="ID_JugadorNegro"/>
+                    <field name="nombre_jugador_blanco"/>
+                    <field name="nombre_jugador_negro"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <table style="width: 100%;">
+                                    <tr>
+                                        <td style="text-align: left; vertical-align: top;">
+                                            <div class="o_kanban_image">
+                                                <img alt="Foto Jugador Blanco" t-att-src="kanban_image('ajedrez.jugador', 'Foto', record.ID_JugadorBlanco.raw_value)"/>
+                                                <strong class="o_kanban_record_title">
+                                                    <t t-esc="record.nombre_jugador_blanco.value"/>
+                                                </strong>
+                                            </div>
+                                        </td>
+
+                                        <td style="text-align: center; vertical-align: top;">
+                                            <div class="oe_kanban_details" style="text-align: center;">
+                                                <strong class="o_kanban_record_title">
+                                                    <t>Id: </t><t t-esc="record.ID_Partida.value"/><br/>
+                                                    <t t-esc="record.Resultado.value"/><br/>
+                                                    <t t-esc="record.Fecha_juego.value"/>
+                                                </strong>
+                                            </div>
+                                        </td>
+
+                                        <td style="text-align: right; vertical-align: top;">
+                                            <div class="o_kanban_image">
+                                                <img alt="Foto Jugador Negro" t-att-src="kanban_image('ajedrez.jugador', 'Foto', record.ID_JugadorNegro.raw_value)"/>
+                                                <strong class="o_kanban_record_title">
+                                                    <t t-esc="record.nombre_jugador_negro.value"/>
+                                                </strong>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.report" id="action_report_imprimir_partidas">
+           <field name="name">Imprimir todas las partidas</field>
+           <field name="model">ajedrez.partida</field>
+           <field name="report_type">qweb-pdf</field>
+           <field name="report_name">ajedrez.informe_imprimir_partidas</field>
+           <field name="binding_model_id" ref="model_ajedrez_partida"/>
+           <field name="binding_type">report</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="accion_ajedrez_partida_tree">
+            <field name="name">Catálogo de Partidas</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ajedrez.partida</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Partidas
+                </p>
+                <p>
+                    Haz clic en 'Crear' para añadir una partida.
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="accion_ajedrez_partida_form">
+            <field name="name">Catálogo de Partidas</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ajedrez.partida</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Partidas
+                </p>
+                <p>
+                    Haz clic en 'Crear' para añadir una partida.
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="accion_ajedrez_partida_formkanban">
+            <field name="name">Catálogo de Partidas</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ajedrez.partida</field>
+            <field name="view_mode">kanban,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Partidas
+                </p>
+                <p>
+                    Haz clic en 'Crear' para añadir una partida.
+                </p>
+            </field>
+        </record>
+
+        <record id="action_add_form" model="ir.actions.act_window">
+            <field name="name">Añadir - Formulario</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ajedrez.partida</field>
+            <field name="view_mode">form</field>
+        </record>
+
+        <record id="action_listado_list" model="ir.actions.act_window">
+            <field name="name">Menú - Listado</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ajedrez.partida</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <record id="action_listado_kanban" model="ir.actions.act_window">
+            <field name="name">Menú - Kanban</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ajedrez.partida</field>
+            <field name="view_mode">kanban,form</field>
+        </record>
+
+        <record id="action_info_1" model="ir.actions.act_window">
+            <field name="name">Menú Completo</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ajedrez.partida</field>
+            <field name="view_mode">kanban,tree,form</field>
+        </record>
+
+        <record id="action_buscar" model="ir.actions.act_url">
+            <field name="name">Buscador Google</field>
+            <field name="url">https://www.google.es/</field>
+            <field name="target">self</field>
+        </record>
+
+        <record id="action_ayuda_odoo" model="ir.actions.act_url">
+            <field name="name">Ayuda Odoo</field>
+            <field name="url">https://www.odoo.com/documentation/16.0/es/</field>
+            <field name="target">self</field>
+        </record>
+
+        <menuitem id="menu_ajedrez_raiz" name="Ajedrez" sequence="1"/>
+
+            <menuitem id="menu_ajedrez_catalogo" name="Catálogo de Partidas" parent="menu_ajedrez_raiz" sequence="11"/>
+
+                <menuitem id="menu_ajedrez_completo" name="Vista Completa" parent="menu_ajedrez_catalogo" sequence="12" action="action_info_1"/>
+
+                <menuitem id="menu_ajedrez_partidas" name="Consultar Lista" parent="menu_ajedrez_catalogo" sequence="13" action="action_listado_list"/>
+
+                <menuitem id="menu_ajedrez_partidas2" name="Consultar Kanban" parent="menu_ajedrez_catalogo" sequence="14" action="action_listado_kanban"/>
+
+                <menuitem id="menu_ajedrez_partidas3" name="Acceder al Formulario" parent="menu_ajedrez_catalogo" sequence="15" action="action_add_form"/>
+
+<!--        <menuitem id="menu_ajedrez_listados" name="Listados de Mis Partidas*" parent="menu_ajedrez_raiz" sequence="20"/>
+
+                <menuitem id="menu_ajedrez_informe_1" name="Consulta Informe nº1*" parent="menu_ajedrez_listados" sequence="21" action="action_info_1"/>
+
+                <menuitem id="menu_ajedrez_informe_2" name="Consulta Informe nº2*" parent="menu_ajedrez_listados" sequence="22" action="action_listado_list"/>
+-->
+            <menuitem id="menu_ajedrez_informacion" name="Información" parent="menu_ajedrez_raiz" sequence="30"/>
+
+                <menuitem id="menu_ajedrez_partidasInf" name="Buscar en Google" parent="menu_ajedrez_informacion" sequence="31" action="action_buscar"/>
+
+                <menuitem id="menu_ajedrez_partidas_Sec" name="Ayudas Odoo" parent="menu_ajedrez_informacion" sequence="32"/>
+
+                    <menuitem id="menu_ajedrez_Ayuda" name="Odoo 16 - Ayuda" parent="menu_ajedrez_partidas_Sec" sequence="33" action="action_ayuda_odoo"/>
+
+    </data>
+</odoo>

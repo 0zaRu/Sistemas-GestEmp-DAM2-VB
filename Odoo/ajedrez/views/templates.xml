@@ -1,0 +1,88 @@
+<odoo>
+    <data>
+        <template id="report_ficha_partida">
+            <t t-call="web.html_container">
+                <t t-as="o" t-foreach="docs">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td style="width: 25%; text-align: center; vertical-align: top;">
+                                        <t t-if="o.imagen_jugador_blanco">
+                                            <img style="max-height: 8cm; max-width: 8cm;" t-attf-src="data:image/jpg;base64,{{ o.imagen_jugador_blanco }}" widget="image"/>
+                                        </t>
+                                        <p>
+                                            <span style="color: black; font-family: Verdana; font-weight: bold;">ID Jugador Blanco:</span>
+                                            <span t-field="o.ID_JugadorBlanco"/>
+                                        </p>
+                                        <p>
+                                            <span style="color: black; font-family: Verdana; font-weight: bold;">Nombre Jugador Blanco:</span>
+                                            <span t-field="o.nombre_jugador_blanco"/>
+                                        </p>
+                                    </td>
+
+                                    <td style="width: 50%; text-align: center; vertical-align: top;">
+                                        <p style="color: black; font-family: Verdana; font-weight: bold;">
+                                            ID de la Partida:
+                                            <span t-field="o.ID_Partida"/>
+                                        </p>
+
+                                        <t t-if="o.Fecha_juego">
+                                            <p>
+                                                <span style="color: black; font-family: Verdana; font-weight: bold;">Fecha de juego:</span>
+                                                <span t-field="o.Fecha_juego"/>
+                                            </p>
+                                        </t>
+
+                                        <t t-if="o.Resultado">
+                                            <p>
+                                                <span style="color: black; font-family: Verdana; font-weight: bold;">Resultado:</span>
+                                                <span t-field="o.Resultado"/>
+                                            </p>
+                                        </t>
+                                        <t t-if="o.Duracion">
+                                            <p>
+                                                <span style="color: black; font-family: Verdana; font-weight: bold;">Duracion:</span>
+                                                <span t-field="o.Duracion"/>
+                                            </p>
+                                        </t>
+
+                                    </td>
+
+                                    <td style="width: 25%; text-align: center; vertical-align: top;">
+                                        <t t-if="o.imagen_jugador_negro">
+                                            <img style="max-height: 8cm; max-width: 8cm;" t-attf-src="data:image/jpg;base64,{{ o.imagen_jugador_negro }}" widget="image"/>
+                                        </t>
+                                        <p>
+                                            <span style="color: black; font-family: Verdana; font-weight: bold;">ID Jugador Negro:</span>
+                                            <span t-field="o.ID_JugadorNegro"/>
+                                        </p>
+                                        <p>
+                                            <span style="color: black; font-family: Verdana; font-weight: bold;">Nombre Jugador Negro:</span>
+                                            <span t-field="o.nombre_jugador_negro"/>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <t t-if="o.Registro_Movimientos">
+                                <br/>
+                                <br/>
+                                <p>
+                                    <span style="color: black; font-family: Verdana; font-weight: bold;">Registro de Movimientos:</span>
+                                    <span t-field="o.Registro_Movimientos"/>
+                                </p>
+                            </t>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+        <template id="informe_imprimir_partidas">
+            <t t-call="web.html_container">
+                <t t-call="ajedrez.report_ficha_partida"/>
+            </t>
+        </template>
+    </data>
+</odoo>
